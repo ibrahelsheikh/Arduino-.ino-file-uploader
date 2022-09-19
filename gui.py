@@ -14,5 +14,5 @@ with open(Path(__file__).parent / "template" / "template.ino", "r") as file:
 with open(Path(__file__).parent / "out" / "out.ino", "w") as file:
     file.write(new_code_str)
 
-print(arduino.compile("./out/out.ino", fqbn="arduino:avr:nano"))
-print(arduino.upload("./out/out.ino", port='com3',fqbn="arduino:avr:nano:cpu=atmega328old"))
+arduino.compile("./out/out.ino", fqbn="arduino:avr:nano")
+arduino.upload("./out/out.ino", port='com3', fqbn="arduino:avr:nano:cpu=atmega328old")
