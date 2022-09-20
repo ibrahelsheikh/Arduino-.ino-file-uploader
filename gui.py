@@ -33,6 +33,12 @@ class MainWindow(QWidget):
         layout.addLayout(sub)
 
         sub = QHBoxLayout()
+        sub.addWidget(QLabel("Output:  "))
+        line_edit = QLineEdit()
+        sub.addWidget(line_edit)
+        layout.addLayout(sub)
+
+        sub = QHBoxLayout()
         upload_btn = QPushButton("Upload")
         line_edit.returnPressed.connect(upload_btn.clicked)
         upload_btn.clicked.connect(lambda: self.modify_template_and_upload(line_edit.text()))
@@ -40,8 +46,6 @@ class MainWindow(QWidget):
         layout.addLayout(sub)
 
         self.show()
-
-
 
     def modify_template_and_upload(self, wifi_password):
         with open(TEMPLATE_SKETCH_PATH, "r") as file:
