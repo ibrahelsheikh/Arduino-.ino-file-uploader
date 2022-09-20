@@ -27,13 +27,13 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
         sub = QHBoxLayout()
-        sub.addWidget(QLabel("WiFi Pin:"))
+        sub.addWidget(QLabel("SSID    :-"))
         line_edit = QLineEdit()
         sub.addWidget(line_edit)
         layout.addLayout(sub)
 
         sub = QHBoxLayout()
-        sub.addWidget(QLabel("Output:  "))
+        sub.addWidget(QLabel("Password :-"))
         line_edit = QLineEdit()
         sub.addWidget(line_edit)
         layout.addLayout(sub)
@@ -44,6 +44,11 @@ class MainWindow(QWidget):
         upload_btn.clicked.connect(lambda: self.modify_template_and_upload(line_edit.text()))
         sub.addWidget(upload_btn)
         layout.addLayout(sub)
+
+        sub = QHBoxLayout()
+        sub.addWidget(QLabel("output:-   "))
+        layout.addLayout(sub)
+
 
         self.show()
 
