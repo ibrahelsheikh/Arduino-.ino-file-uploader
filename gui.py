@@ -15,8 +15,8 @@ from PySide6.QtWidgets import (
 # Ensure arduino:avr is installed
 os.system("arduino-cli core install arduino:avr")
 
-TEMPLATE_SKETCH_PATH = (Path(__file__).parent / "template" / "template.ino").as_posix()
-OUTPUT_SKETCH_PATH = (Path(__file__).parent / "out" / "out.ino").as_posix()
+TEMPLATE_SKETCH_PATH = Path(__file__).parent / "template.ino"
+OUTPUT_SKETCH_PATH = Path(__file__).parent / "out" / "out.ino"
 
 
 class MainWindow(QWidget):
@@ -45,12 +45,13 @@ class MainWindow(QWidget):
             code_str = file.read()
             new_code_str = code_str.replace("{{LED_VALUE}}", wifi_password)
 
+        os.makedirs(OUTPUT_SKETCH_PATH.parent, exist_ok=True)
         with open(OUTPUT_SKETCH_PATH, "w") as file:
             file.write(new_code_str)
 
         arduino = pyduinocli.Arduino()
-        arduino.compile(OUTPUT_SKETCH_PATH, fqbn="arduino:avr:nano:cpu=atmega328old")
-        arduino.upload(OUTPUT_SKETCH_PATH, port="com3", fqbn="arduino:avr:nano:cpu=atmega328old")
+        arduino.compile(OUTPUT_SKETCH_PATH.as_posix(), fqbn="arduino:avr:nano:cpu=atmega328old")
+        arduino.upload(OUTPUT_SKETCH_PATH.as_posix(), port="com3", fqbn="arduino:avr:nano:cpu=atmega328old")
 
 
 app = QApplication()

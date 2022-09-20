@@ -1,4 +1,4 @@
-int LED = 10;
+int LED = {{LED_VALUE}};
 
 void setup()
 {
@@ -11,4 +11,4 @@ void loop()
     delay(1000);
     digitalWrite(LED, LOW);
     delay(1000);
-} 
+}
