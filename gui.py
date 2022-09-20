@@ -18,7 +18,5 @@ with open(TEMPLATE_SKETCH_PATH, "r") as file:
 with open(OUTPUT_SKETCH_PATH, "w") as file:
     file.write(new_code_str)
 
-arduino.compile(OUTPUT_SKETCH_PATH, fqbn="arduino:avr:nano")
-arduino.upload(
-    OUTPUT_SKETCH_PATH, port="com3", fqbn="arduino:avr:nano:cpu=atmega328old"
-)
+arduino.compile(OUTPUT_SKETCH_PATH, fqbn="arduino:avr:nano:cpu=atmega328old")
+arduino.upload(OUTPUT_SKETCH_PATH, port="com3", fqbn="arduino:avr:nano:cpu=atmega328old")
