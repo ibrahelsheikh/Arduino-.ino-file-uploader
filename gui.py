@@ -41,6 +41,8 @@ class MainWindow(QWidget):
 
         self.show()
 
+
+
     def modify_template_and_upload(self, wifi_password):
         with open(TEMPLATE_SKETCH_PATH, "r") as file:
             code_str = file.read()
