@@ -34,6 +34,7 @@ class MainWindow(QWidget):
 
         sub = QHBoxLayout()
         upload_btn = QPushButton("Upload")
+        line_edit.returnPressed.connect(upload_btn.clicked)
         upload_btn.clicked.connect(lambda: self.modify_template_and_upload(line_edit.text()))
         sub.addWidget(upload_btn)
         layout.addLayout(sub)
