@@ -35,8 +35,7 @@ class MainWindow(QWidget):
         layout = QVBoxLayout(self)
         self.setLayout(layout)
 
-        my_icon = QIcon()
-        my_icon.addFile('icon.jpg')
+        my_icon = QIcon("./icon.svg")
 
         self.setWindowIcon(my_icon)
 
