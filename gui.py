@@ -14,7 +14,6 @@ from PySide6.QtWidgets import (
 
 # Ensure arduino:avr is installed
 os.system("arduino-cli core install arduino:avr")
-
 TEMPLATE_SKETCH_PATH = Path(__file__).parent / "template.ino"
 OUTPUT_SKETCH_PATH = Path(__file__).parent / "out" / "out.ino"
 
@@ -22,7 +21,7 @@ OUTPUT_SKETCH_PATH = Path(__file__).parent / "out" / "out.ino"
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Arduino CLI")
+        self.setWindowTitle("Wifi interface")
         layout = QVBoxLayout(self)
         self.setLayout(layout)
 
@@ -34,14 +33,14 @@ class MainWindow(QWidget):
 
         sub = QHBoxLayout()
         sub.addWidget(QLabel("Password :-"))
-        line_edit = QLineEdit()
-        sub.addWidget(line_edit)
+        line_edit_two = QLineEdit()
+        sub.addWidget(line_edit_two)
         layout.addLayout(sub)
 
         sub = QHBoxLayout()
         upload_btn = QPushButton("Upload")
         line_edit.returnPressed.connect(upload_btn.clicked)
-        upload_btn.clicked.connect(lambda: self.modify_template_and_upload(line_edit.text()))
+        upload_btn.clicked.connect(lambda: self.modify_template_and_upload(line_edit.text(),line_edit_two.text()))
         sub.addWidget(upload_btn)
         layout.addLayout(sub)
 
@@ -49,14 +48,12 @@ class MainWindow(QWidget):
         sub.addWidget(QLabel("output:-   "))
         layout.addLayout(sub)
 
-
         self.show()
 
-    def modify_template_and_upload(self, wifi_password):
+    def modify_template_and_upload(self, SSID ,password):
         with open(TEMPLATE_SKETCH_PATH, "r") as file:
             code_str = file.read()
-            new_code_str = code_str.replace("{{LED_VALUE}}", wifi_password)
-
+            new_code_str = code_str.replace("{{WIFI_SSID}}", SSID).replace("{{WIFI_password}}", password)
         os.makedirs(OUTPUT_SKETCH_PATH.parent, exist_ok=True)
         with open(OUTPUT_SKETCH_PATH, "w") as file:
             file.write(new_code_str)

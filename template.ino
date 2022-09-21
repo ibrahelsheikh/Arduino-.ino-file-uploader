@@ -1,14 +1,14 @@
-int LED = {{LED_VALUE}};
+int LED ={{LED_VALUE}}
+#define SSID ={{WIFI_SSID}}
+#define password ={{WIFI_PASSWORD}}
 
-void setup()
-{
- pinMode(LED, OUTPUT);
+
+void setup() {
+  // put your setup code here, to run once:
+
 }
 
-void loop()
-{
-    digitalWrite(LED, HIGH);
-    delay(1000);
-    digitalWrite(LED, LOW);
-    delay(1000);
+void loop() {
+  // put your main code here, to run repeatedly:
+
 }
