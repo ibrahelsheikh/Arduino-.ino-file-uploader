@@ -62,7 +62,7 @@ class MainWindow(QWidget):
     def modify_template_and_upload(self, SSID ,password):
         with open(TEMPLATE_SKETCH_PATH, "r") as file:
             code_str = file.read()
-            new_code_str = code_str.replace("{{WIFI_SSID}}", SSID).replace("{{WIFI_password}}", password)
+            new_code_str = code_str.replace("{{WIFI_SSID}}", SSID).replace("{{WIFI_PASSWORD}}", password)
         os.makedirs(OUTPUT_SKETCH_PATH.parent, exist_ok=True)
         with open(OUTPUT_SKETCH_PATH, "w") as file:
             file.write(new_code_str)

@@ -1,5 +1,5 @@
-#define SSID =122557
-#define password ={{WIFI_PASSWORD}}
+#define SSID =miionjoi
+#define password =nklppmmkl
 
 
 #include <Time.h>
