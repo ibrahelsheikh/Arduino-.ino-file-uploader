@@ -1,4 +1,3 @@
-int LED ={{LED_VALUE}}
 #define SSID ={{WIFI_SSID}}
 #define password ={{WIFI_PASSWORD}}
 

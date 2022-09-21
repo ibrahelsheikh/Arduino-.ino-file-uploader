@@ -10,6 +10,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
     QPushButton,
+    QCheckBox,
 )
 
 # Ensure arduino:avr is installed
@@ -26,16 +27,24 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
         sub = QHBoxLayout()
-        sub.addWidget(QLabel("SSID    :-"))
+        sub.addWidget(QLabel("SSID:-        "))
         line_edit = QLineEdit()
         sub.addWidget(line_edit)
         layout.addLayout(sub)
 
         sub = QHBoxLayout()
-        sub.addWidget(QLabel("Password :-"))
+        sub.addWidget(QLabel("Password:-"))
         line_edit_two = QLineEdit()
         sub.addWidget(line_edit_two)
         layout.addLayout(sub)
+
+
+        sub =QHBoxLayout()
+        checkbox = QCheckBox("show", self)
+        sub.addWidget(QLabel("                                                                  " ))
+        sub.addWidget(checkbox)
+        layout.addLayout(sub)
+
 
         sub = QHBoxLayout()
         upload_btn = QPushButton("Upload")
@@ -45,7 +54,7 @@ class MainWindow(QWidget):
         layout.addLayout(sub)
 
         sub = QHBoxLayout()
-        sub.addWidget(QLabel("output:-   "))
+        sub.addWidget(QLabel("output:-"))
         layout.addLayout(sub)
 
         self.show()
