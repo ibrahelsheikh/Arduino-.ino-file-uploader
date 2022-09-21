@@ -30,7 +30,7 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
         my_icon = QIcon()
-        my_icon.addFile('Arduino_Logo.svg.png')
+        my_icon.addFile('icon.jpg')
 
         self.setWindowIcon(my_icon)
 
@@ -65,7 +65,7 @@ class MainWindow(QWidget):
         sub.addWidget(QLabel("output:-"))
         layout.addLayout(sub)
 
-        myappid = 'Arduino_Logo.svg.png' # arbitrary string
+        myappid = 'icon.jpg' # arbitrary string
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
         self.show()
