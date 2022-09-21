@@ -62,7 +62,7 @@ class MainWindow(QWidget):
                 wifi_password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
 
         checkbox.stateChanged.connect(show_password_handler)
-        sub.setAlignment(Qt.AlignLeft)
+        sub.setAlignment(Qt.AlignRight)
         sub.addWidget(checkbox)
         layout.addLayout(sub)
 
