@@ -48,11 +48,20 @@ class MainWindow(QWidget):
         sub = QHBoxLayout()
         sub.addWidget(QLabel("Password:-"))
         wifi_password_line_edit = QLineEdit()
+        wifi_password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
         sub.addWidget(wifi_password_line_edit)
         layout.addLayout(sub)
 
         sub = QHBoxLayout()
         checkbox = QCheckBox("Show Password", self)
+
+        def show_password_handler(is_checked: bool):
+            if is_checked:
+                wifi_password_line_edit.setEchoMode(QLineEdit.EchoMode.Normal)
+            else:
+                wifi_password_line_edit.setEchoMode(QLineEdit.EchoMode.Password)
+
+        checkbox.stateChanged.connect(show_password_handler)
         sub.setAlignment(Qt.AlignLeft)
         sub.addWidget(checkbox)
         layout.addLayout(sub)
