@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import ctypes
 
 import pyduinocli
 from PySide6.QtWidgets import (
@@ -11,7 +12,9 @@ from PySide6.QtWidgets import (
     QWidget,
     QPushButton,
     QCheckBox,
+
 )
+from PySide6.QtGui import QIcon
 
 # Ensure arduino:avr is installed
 os.system("arduino-cli core install arduino:avr")
@@ -25,6 +28,11 @@ class MainWindow(QWidget):
         self.setWindowTitle("Wifi interface")
         layout = QVBoxLayout(self)
         self.setLayout(layout)
+
+        my_icon = QIcon()
+        my_icon.addFile('Arduino_Logo.svg.png')
+
+        self.setWindowIcon(my_icon)
 
         sub = QHBoxLayout()
         sub.addWidget(QLabel("SSID:-        "))
@@ -56,6 +64,9 @@ class MainWindow(QWidget):
         sub = QHBoxLayout()
         sub.addWidget(QLabel("output:-"))
         layout.addLayout(sub)
+
+        myappid = 'Arduino_Logo.svg.png' # arbitrary string
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
         self.show()
 
