@@ -75,10 +75,9 @@ class MainWindow(QWidget):
                 wifi_ssid_line_edit.text(), wifi_password_line_edit.text()
             )
         )
+
         sub.addWidget(upload_btn)
         layout.addLayout(sub)
-
-
 
         sub = QHBoxLayout()
         sub.addWidget(QLabel("Output:-"))
@@ -113,4 +112,3 @@ if platform.system() == "Windows":
 window = MainWindow()
 
 app.exec_()
-
