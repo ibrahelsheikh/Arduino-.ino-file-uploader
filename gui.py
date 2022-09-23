@@ -40,7 +40,7 @@ class MainWindow(QWidget):
         self.setWindowIcon(my_icon)
 
         sub = QHBoxLayout()
-        sub.addWidget(QLabel("SSID:-"))
+        sub.addWidget(QLabel("SSID:-       "))
         wifi_ssid_line_edit = QLineEdit()
         sub.addWidget(wifi_ssid_line_edit)
         layout.addLayout(sub)
@@ -69,6 +69,7 @@ class MainWindow(QWidget):
         sub = QHBoxLayout()
         upload_btn = QPushButton("Upload")
         wifi_ssid_line_edit.returnPressed.connect(upload_btn.clicked)
+
         upload_btn.clicked.connect(
             lambda: self.modify_template_and_upload(
                 wifi_ssid_line_edit.text(), wifi_password_line_edit.text()
@@ -76,6 +77,8 @@ class MainWindow(QWidget):
         )
         sub.addWidget(upload_btn)
         layout.addLayout(sub)
+
+
 
         sub = QHBoxLayout()
         sub.addWidget(QLabel("Output:-"))
@@ -110,3 +113,4 @@ if platform.system() == "Windows":
 window = MainWindow()
 
 app.exec_()
+

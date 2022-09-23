@@ -2,7 +2,4 @@
 .vscode
 venv
 out
-
-
-
-
+test.py
