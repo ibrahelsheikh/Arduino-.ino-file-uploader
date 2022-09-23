@@ -1,6 +1,3 @@
-#define SSID ={{WIFI_SSID}}
-#define password ={{WIFI_PASSWORD}}
-
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);

@@ -1,9 +1,5 @@
-# WaveShapePlay
-# Find a detailed youtube tutorial for the Arduino Com Connection Code at: https://youtu.be/DJD28uK5qIk
-
-
 import serial.tools.list_ports
-
+global port_case
 
 def get_ports():
     ports = serial.tools.list_ports.comports()
@@ -35,12 +31,12 @@ def get_port_name():
 
 
 def check_connection_case():
+    pass
 
 
 if connectPort != 'None':
-    global port_case
     ser = serial.Serial(connectPort, baudrate=9600, timeout=1)
-    port_case = 'Connected to ' + connectPort
+    port_case =str('Connected to '+ connectPort)
     print(port_case)
     get_port_name()
 
