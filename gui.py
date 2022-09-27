@@ -2,7 +2,7 @@ import ctypes
 import os
 import platform
 from pathlib import Path
-
+import findArduino
 import pyduinocli
 from PySide2.QtCore import Qt
 from PySide2.QtGui import QIcon
@@ -25,8 +25,7 @@ TEMPLATE_SKETCH_PATH = Path(__file__).parent / "template.ino"
 OUTPUT_SKETCH_PATH = Path(__file__).parent / "out" / "out.ino"
 OUTPUT_SKETCH_PATH_STR = OUTPUT_SKETCH_PATH.as_posix()
 ARDUINO_BOARD_FULLY_QUALIFIED_NAME = "arduino:avr:nano:cpu=atmega328old"
-PORT = "com3"
-
+PORT = findArduino.serial_ports()
 
 class MainWindow(QWidget):
     def __init__(self):
