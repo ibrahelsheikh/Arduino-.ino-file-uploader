@@ -4,3 +4,4 @@ venv
 out
 test.py
 CMakeLists.txt
+cmake-build-debug
