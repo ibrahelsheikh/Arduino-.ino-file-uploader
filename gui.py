@@ -44,6 +44,7 @@ class MainWindow(QWidget):
 
 
 
+
         sub = QHBoxLayout()
         sub.addWidget(QLabel("SSID:-       "))
         wifi_ssid_line_edit = QLineEdit()
