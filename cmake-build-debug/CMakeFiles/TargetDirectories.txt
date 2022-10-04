@@ -1,3 +1,0 @@
-C:/Users/ibrah/PycharmProjects/arduino-cli-test/cmake-build-debug/CMakeFiles/arduino_cli_test.dir
-C:/Users/ibrah/PycharmProjects/arduino-cli-test/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ibrah/PycharmProjects/arduino-cli-test/cmake-build-debug/CMakeFiles/rebuild_cache.dir

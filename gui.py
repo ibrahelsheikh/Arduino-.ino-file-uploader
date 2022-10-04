@@ -2,7 +2,7 @@ import ctypes
 import os
 import platform
 from pathlib import Path
-import findArduino
+from findarduinoport import findArduino
 import pyduinocli
 
 from PySide2.QtCore import Qt
