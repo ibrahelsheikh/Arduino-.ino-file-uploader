@@ -4,6 +4,7 @@ import platform
 from pathlib import Path
 
 import pyduinocli
+
 from PySide2.QtCore import Qt
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import (
@@ -38,6 +39,11 @@ class MainWindow(QWidget):
         my_icon = QIcon("./icon.svg")
 
         self.setWindowIcon(my_icon)
+
+        # resize the window
+        self.resize(400, 200)
+
+
 
         sub = QHBoxLayout()
         sub.addWidget(QLabel("SSID:-       "))
